@@ -64,7 +64,7 @@ public class Main {
         // Bandera de Guatemala (simplificada en ASCII)
         System.out.println("  ||      ||      ++      ||      ||   ");
         System.out.println("  ||      ||      ++      ||      ||   ");
-        System.out.println("  ||      ||   (GUATEMALA)   ||      ||   ");
+        System.out.println("  ||      ||   ( Guate)   ||      ||   ");
         System.out.println("  ||      ||      ++      ||      ||   ");
         System.out.println("  ||      ||      ++      ||      ||   ");
         
@@ -72,43 +72,43 @@ public class Main {
     }
 
     private static void registrarAtleta() {
-        boolean agregarMas = true;
-        while (agregarMas) {
-            System.out.print("Carnet de deportista: ");
-            String carnet = scanner.nextLine();
-            System.out.print("Nombre: ");
-            String nombre = scanner.nextLine();
-            System.out.print("Edad: ");
-            int edad = scanner.nextInt();
-            scanner.nextLine();
+    boolean agregarMas = true;
+    while (agregarMas) {
+        System.out.print("Carnet de deportista: ");
+        String carnet = scanner.nextLine();
 
-            System.out.println("Disciplinas:");
-            for (int i = 0; i < DISCIPLINAS.length; i++) {
-                System.out.println((i + 1) + ". " + DISCIPLINAS[i]);
-            }
-            System.out.print("Elige numero de disciplina: ");
-            int numDis = scanner.nextInt();
-            scanner.nextLine();
-            String disciplina = (numDis >= 1 && numDis <= 6) ? DISCIPLINAS[numDis - 1] : "Desconocida";
+        System.out.print("Nombre: ");
+        String nombre = scanner.nextLine();
 
-            System.out.println("Departamentos:");
-            for (int i = 0; i < DEPARTAMENTOS.length; i++) {
-                System.out.println((i + 1) + ". " + DEPARTAMENTOS[i]);
-            }
-            System.out.print("Elige numero de departamento: ");
-            int numDep = scanner.nextInt();
-            scanner.nextLine();
-            String departamento = (numDep >= 1 && numDep <= 22) ? DEPARTAMENTOS[numDep - 1] : "Desconocido";
+        System.out.print("Edad: ");
+        int edad = Integer.parseInt(scanner.nextLine()); // Leer con nextLine y convertir
 
-            Atleta atleta = new Atleta(carnet, nombre, edad, disciplina, departamento);
-            gestor.registrarAtleta(atleta);
-            System.out.println("Atleta registrado.");
-
-            System.out.print("Desea agregar uno mas? (si/no): ");
-            String respuesta = scanner.nextLine().trim().toLowerCase();
-            agregarMas = respuesta.equals("si");
+        System.out.println("Disciplinas:");
+        for (int i = 0; i < DISCIPLINAS.length; i++) {
+            System.out.println((i + 1) + ". " + DISCIPLINAS[i]);
         }
+        System.out.print("Elige numero de disciplina: ");
+        int numDis = Integer.parseInt(scanner.nextLine());
+        String disciplina = (numDis >= 1 && numDis <= 6) ? DISCIPLINAS[numDis - 1] : "Desconocida";
+
+        System.out.println("Departamentos:");
+        for (int i = 0; i < DEPARTAMENTOS.length; i++) {
+            System.out.println((i + 1) + ". " + DEPARTAMENTOS[i]);
+        }
+        System.out.print("Elige numero de departamento: ");
+        int numDep = Integer.parseInt(scanner.nextLine());
+        String departamento = (numDep >= 1 && numDep <= 22) ? DEPARTAMENTOS[numDep - 1] : "Desconocido";
+
+        Atleta atleta = new Atleta(carnet, nombre, edad, disciplina, departamento);
+        gestor.registrarAtleta(atleta);
+        System.out.println("Atleta registrado.");
+
+        System.out.print("Desea agregar uno mas? (si/no): ");
+        String respuesta = scanner.nextLine().trim().toLowerCase();
+        agregarMas = respuesta.equals("si");
     }
+}
+
 
     private static void registrarEntrenamiento() {
         System.out.print("Carnet del atleta: ");
