@@ -1,0 +1,32 @@
+[
+  {
+    "carnet": "12345",
+    "nombre": "Fidian Morales",
+    "edad": 40,
+    "disciplina": "Saltos",
+    "departamento": "El Quiche",
+    "entrenamientos": [
+      {
+        "fecha": "2025-02-20",
+        "tipo": "Lanzamientos",
+        "marca": 56.2
+      }
+    ]
+  },
+  {
+    "carnet": "12545",
+    "nombre": "test",
+    "edad": 20,
+    "disciplina": "Carreras",
+    "departamento": "Sacatepequez",
+    "entrenamientos": []
+  },
+  {
+    "carnet": "54487",
+    "nombre": "fidian",
+    "edad": 20,
+    "disciplina": "Marcha Atletica",
+    "departamento": "Totonicapan",
+    "entrenamientos": []
+  }
+]

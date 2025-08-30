@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 
+
+
 public class Main {
     private static final String ARCHIVO = "atletas.csv";
     private static GestorAtletas gestor = new GestorAtletas();
@@ -230,7 +232,7 @@ public class Main {
     System.out.println("+------------+----------------+-----------+-------------+");
 
     // Evolución
-    System.out.println("\nEvolución de Entrenamientos:");
+    System.out.println("\nEvolucion de Entrenamientos:");
     System.out.println("+------------+-------------------+-----------+");
     System.out.println("| Fecha      | Tipo              | Marca     |");
     System.out.println("+------------+-------------------+-----------+");
@@ -257,13 +259,20 @@ public class Main {
             System.out.println("No se pudo cargar el archivo o no existe.");
         }
     }
-
-    private static void guardarDatos() {
-        try {
-            gestor.guardarEnCSV(ARCHIVO);
-            System.out.println("Datos guardados en " + ARCHIVO);
-        } catch (Exception e) {
-            System.out.println("Error al guardar: " + e.getMessage());
-        }
+private static void guardarDatos() {
+    try {
+        gestor.guardarEnCSV(ARCHIVO);
+        System.out.println("Datos CSV guardados correctamente.");
+    } catch (Exception e) {
+        System.out.println("Error al guardar CSV: " + e.getMessage());
     }
+
+    try {
+        gestor.guardarEnJSON("atletas.json");
+        System.out.println("Datos JSON guardados correctamente.");
+    } catch (Exception e) {
+        System.out.println("Error al guardar JSON: " + e.getMessage());
+    }
+}
+   
 }
